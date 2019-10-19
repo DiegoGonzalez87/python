@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from app1 import views
+from app1 import views as local_view
+
+from hotels import views as hotels_view
 
 def test(request):
     return HttpResponse('Soy nivel pro')
@@ -24,6 +27,8 @@ def test(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', test),
-    path('test1/', views.test1),
-    path('test2/', views.test3)
+    path('test1/', local_view.test1),
+    path('test2/', local_view.test3),
+    path('test4/<str:name>/<str:country>', local_view.test4),
+    path('hotels', hotels_view.list_hotels)
 ]
