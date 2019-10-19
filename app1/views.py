@@ -26,3 +26,4 @@ def test4(request, name, country):
     else:
         message = 'No eres {}, de nacionalidad colombiana'.format(name)
     return HttpResponse(message)
+    
